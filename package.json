@@ -1,0 +1,34 @@
+{
+  "name": "htmlapis",
+  "version": "0.0.1",
+  "description": "test html apis, like  Websocker, Server-Sent Event, Web Workers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js --ignore 'public/*.js' --ignore 'data/'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikisu53/htmlApis.git"
+  },
+  "keywords": [
+    "Websocker",
+    "Server-Sent Event",
+    "Web Workers",
+    "postMessage",
+    "sendMessage"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kikisu53/htmlApis/issues"
+  },
+  "homepage": "https://github.com/kikisu53/htmlServerApis#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.3"
+  }
+}

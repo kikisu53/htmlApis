@@ -1,0 +1,49 @@
+<% include ../views/partials/head %>
+<script>var timeout = '<%= timeout %>';</script>
+<body>
+     <% include ../views/partials/menu %>
+    <div class="container">
+        <ol>
+            <li>Ｗeb Workers是在clinet端的背景執行指定程式(*.js)，執行結果透過postMessage傳送。</li>
+            <li>Server-sent Event是建立一個監聽server端傳送來的資訊，並據此進行動作。</li>
+            <li>Server-sent Event是單向監聽，Web Socket為雙向。</li>
+            <li>觀察點</li>
+            <ul>
+                <li>伺服器關閉後，只有Web Workers會繼續執行。</li>
+                <li>Web Workers的參數為public裡面的檔案（即使用者可以下載的檔案），Server-sent Event的參數為url路徑。</li>
+            </ul>
+            <li>Ｗeb Workers有其使用限制，例如 navigator.geolocation 只能在 main thread 使用，故值為undefined。使用 main thread 的結果顯示於 My GPS 。</li>
+            <li>Ｗeb Workers可以透過 瀏覽器開發人員工具 -> Javascript profiler 監看。</li>
+            <li>待研究：worker 無法操作主頁面的物件與 DOM，如有相關需求，必須要間接透過 DedicatedWorkerGlobalScope.postMessage 通知主頁面，讓主頁面執行需求。</li>
+        </ol>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <button onclick="startWorker();startSSE('case1');">Start</button> 
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <button onclick="stopWorker();stopSSE('case1');">Stop</button> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <b>Web Workers</b>
+                <output id="workers"></output>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <b>Server-sent Event(SSE)</b>
+                <output id="case1"></output>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <b>Web Socket</b>
+                <output id="socket"></output>
+            </div>
+        </div>
+    </div>
+
+</body>
+    <script src="/sse.js"></script>
+    <script src="/webworkers.js"></script>
+</html>
