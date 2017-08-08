@@ -21,12 +21,13 @@ some test using Web Workers, Server-Sent Event, Websocker
 # Server-Sent Event
 1. 監聽 server 端訊息的物件。
 2. 簡單來說，是單向的 WebSocket ，但使用的協定不同。
-2. Server-Sent Event 和 WebSocket
+2. 實際上運作屬於 long polling。
+2. Server-Sent Event 、 WebSocket 、 long polling
 
-	| Server-Sent Event | WebSocket |
-	|---|---|
-	|單向：Server-Side -> Client-Side | 雙向：Server-Side -> Client-Side |
-	|純 HTTP 協定| 獨立協定 |
+	| Server-Sent Event | WebSocket | long polling |
+	|---|---|---|
+	|單向：Server-Side -> Client-Side | 雙向：Server-Side -> Client-Side | 雙向 |
+	|HTTP 協定（會有timeout)| 獨立協定(長時間連線) | HTTP 協定(會有timeout)|
 	
 2. 資料傳送型態必須為 text/event-stream ，資料必須為字串。
 3. 更多細節：[HTML5 - Server-Send Event (SSE)](http://limitedcode.blogspot.tw/2016/12/html5-server-send-event-sse.html)
